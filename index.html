@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lançamento Aeronáutica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --royal: #1D4ED8;
+      --cyan: #06B6D4;
+      --ice: #F8FAFC;
+      --amber: #F59E0B;
+      --slate-900: #0f172a;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(11, 31, 58, 0.15);
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ice);
+      color: var(--slate-900);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Sora', sans-serif;
+      line-height: 1.15;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--royal);
+      margin-bottom: 16px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top right, rgba(6,182,212,0.22), transparent 28%),
+        radial-gradient(circle at left, rgba(29,78,216,0.24), transparent 35%),
+        var(--navy);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+      min-height: 100vh;
+      padding: 56px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      max-width: 740px;
+    }
+
+    .hero p.lead {
+      margin-top: 24px;
+      max-width: 620px;
+      font-size: 1.14rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: #111827;
+      box-shadow: 0 16px 32px rgba(245, 158, 11, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-tags {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+      max-width: 700px;
+    }
+
+    .tag {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      padding: 16px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+    }
+
+    .hero-card-inner {
+      background: rgba(2, 6, 23, 0.58);
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .hero-card-top p {
+      color: #67e8f9;
+      font-size: 0.92rem;
+    }
+
+    .hero-card-top h2 {
+      margin-top: 8px;
+      font-size: 1.75rem;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(34, 211, 238, 0.1);
+      color: #67e8f9;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-box {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .stat-box small {
+      color: rgba(255,255,255,0.65);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-box strong {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .center-copy {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .center-copy h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .center-copy p {
+      margin-top: 18px;
+      font-size: 1.08rem;
+      color: var(--slate-600);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 46px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--slate-600);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .track-card {
+      background: #f8fafc;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .track-card .mini {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #0891b2;
+    }
+
+    .track-card h3 {
+      margin-top: 16px;
+      font-size: 1.75rem;
+    }
+
+    .track-card p {
+      margin-top: 16px;
+      color: var(--slate-600);
+    }
+
+    .track-list {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .track-item {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--slate-700);
+      font-size: 0.96rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .bullet-stack {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .bullet {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .dark-box {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .dark-box p.top {
+      color: #67e8f9;
+      font-size: 0.92rem;
+    }
+
+    .dark-box h3 {
+      margin-top: 14px;
+      font-size: 2rem;
+    }
+
+    .dark-box p {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .cta-inline {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .cta-inline small {
+      color: rgba(255,255,255,0.65);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .tags-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .soft-tag {
+      background: #f8fafc;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 16px 18px;
+      color: var(--slate-700);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .launch {
+      background: linear-gradient(135deg, #0B1F3A, #12356A);
+      color: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: var(--shadow);
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .launch p,
+    .launch li {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .launch-panel {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.09);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .launch-items {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      list-style: none;
+    }
+
+    .launch-items li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .faq {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      margin-top: 38px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--slate-200);
+      background: #f8fafc;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      padding: 22px 24px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--slate-900);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px;
+      color: var(--slate-600);
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-icon {
+      font-size: 1.4rem;
+      color: var(--royal);
+      margin-left: 14px;
+    }
+
+    .final-cta {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .final-panel {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      padding: 48px 28px;
+    }
+
+    .final-panel p {
+      max-width: 860px;
+      margin: 18px auto 0;
+      color: rgba(255,255,255,0.83);
+      font-size: 1.05rem;
+    }
+
+    .form-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 50;
+    }
+
+    .form-modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(100%, 520px);
+      background: var(--white);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .modal-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-card p {
+      color: var(--slate-600);
+      margin-bottom: 22px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--slate-900);
+      font-size: 1.2rem;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--slate-900);
+      background: var(--white);
+      outline: none;
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--royal);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(6, 182, 212, 0.08);
+      color: #0f766e;
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      background: var(--navy);
+      color: rgba(255,255,255,0.68);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .split,
+      .launch-grid,
+      .grid-4,
+      .grid-3,
+      .tags-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-grid {
+        min-height: auto;
+      }
+
+      .hero-tags,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .hero-card-inner,
+      .launch,
+      .dark-box,
+      .track-card,
+      .card,
+      .final-panel {
+        padding: 22px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-card-top {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" id="topo">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Lançamento para quem quer construir carreira na aviação</div>
+        <h1>Sua preparação para a aviação começa com direção certa.</h1>
+        <p class="lead">
+          Um produto criado para jovens que sonham em se tornar pilotos, comissários de bordo ou mecânicos de aeronaves e querem estudar com mais clareza, confiança e foco no futuro profissional.
+        </p>
+
+        <div class="actions">
+          <button class="btn btn-primary open-form">Entrar na lista de lançamento</button>
+          <a class="btn btn-secondary" href="#como-funciona">Ver como funciona</a>
+        </div>
+
+        <div class="hero-tags">
+          <div class="tag">Preparação com direção</div>
+          <div class="tag">Experiência jovem e moderna</div>
+          <div class="tag">Foco em carreira e evolução</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-card-top">
+            <div>
+              <p>Produto de lançamento</p>
+              <h2>Simulados + trilha de preparação</h2>
+            </div>
+            <div class="chip">Jovem • Técnico • Aspiracional</div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-box">
+              <small>Objetivo</small>
+              <strong>Transformar estudo solto em preparação com propósito</strong>
+            </div>
+            <div class="stat-box">
+              <small>Formato</small>
+              <strong>Digital, visual, direto e pronto para rotina intensa</strong>
+            </div>
+            <div class="stat-box">
+              <small>Público</small>
+              <strong>Pilotos, comissários e mecânicos em formação</strong>
+            </div>
+            <div class="stat-box">
+              <small>Resultado esperado</small>
+              <strong>Mais clareza, confiança e constância na evolução</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="center-copy">
+        <span class="eyebrow">A grande promessa</span>
+        <h2>Pare de estudar sem direção e comece a construir seu caminho na aviação com mais segurança.</h2>
+        <p>
+          Esta não é apenas uma página para vender conteúdo. É uma proposta para ajudar o aluno a enxergar um futuro possível, organizar a preparação e manter o foco em uma carreira que exige disciplina, técnica e confiança.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <article class="card">
+          <h3>Mais direção</h3>
+          <p>Saiba exatamente por onde começar, o que priorizar e como evoluir sem desperdiçar tempo.</p>
+        </article>
+        <article class="card">
+          <h3>Mais confiança</h3>
+          <p>Estude com uma estrutura pensada para reduzir insegurança e aumentar sua sensação de progresso.</p>
+        </article>
+        <article class="card">
+          <h3>Mais consistência</h3>
+          <p>Transforme vontade em rotina com uma experiência visual, prática e motivadora.</p>
+        </article>
+        <article class="card">
+          <h3>Mais proximidade com o objetivo</h3>
+          <p>Cada etapa foi pensada para aproximar você da carreira que deseja construir na aviação.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#ffffff;" id="como-funciona">
+    <div class="container">
+      <div style="max-width: 860px;">
+        <span class="eyebrow">Para quem é</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">Três caminhos, uma mesma ambição: entrar na aviação com preparo real</h2>
+        <p style="margin-top:18px; color:var(--slate-600); font-size:1.08rem;">
+          A comunicação e a estrutura do produto foram desenhadas para conversar com perfis diferentes, mantendo uma identidade única: moderna, aspiracional e profissional.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="track-card">
+          <span class="mini">Pilotos</span>
+          <h3>Preparação com foco em desempenho e visão de carreira</h3>
+          <p>Para quem quer construir base teórica sólida, criar rotina de estudo e avançar com mais segurança rumo à formação aeronáutica.</p>
+          <div class="track-list">
+            <div class="track-item">Estudo orientado por objetivos</div>
+            <div class="track-item">Simulados e prática focada</div>
+            <div class="track-item">Mais clareza sobre o caminho na aviação</div>
+          </div>
+        </article>
+
+        <article class="track-card">
+          <span class="mini">Comissários de bordo</span>
+          <h3>Postura, preparação e confiança para crescer na área</h3>
+          <p>Uma jornada pensada para quem quer se apresentar melhor, estudar com estratégia e desenvolver preparo consistente para oportunidades reais.</p>
+          <div class="track-list">
+            <div class="track-item">Organização da rotina de estudo</div>
+            <div class="track-item">Conteúdo com linguagem acessível</div>
+            <div class="track-item">Mais segurança para evoluir na preparação</div>
+          </div>
+        </article>
+
+        <article class="track-card">
+          <span class="mini">Mecânicos de aeronaves</span>
+          <h3>Base técnica com direção prática e visual moderno</h3>
+          <p>Ideal para quem busca estudar com método, fortalecer fundamentos e acelerar o domínio técnico com mais foco e constância.</p>
+          <div class="track-list">
+            <div class="track-item">Aprendizado com estrutura clara</div>
+            <div class="track-item">Foco em evolução técnica real</div>
+            <div class="track-item">Preparação alinhada à rotina intensa</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Como a página vende</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">Uma landing page pensada para despertar desejo e gerar ação</h2>
+        <p style="margin-top:18px; color:var(--slate-600); font-size:1.08rem;">
+          O visitante precisa sentir que encontrou uma preparação que entende sua fase de vida, respeita sua ambição e oferece um caminho mais claro para sair da intenção e entrar em movimento.
+        </p>
+        <div class="bullet-stack">
+          <div class="bullet">Headline forte com promessa clara e posicionamento profissional</div>
+          <div class="bullet">Visual com atmosfera aeronáutica, tecnológica e premium</div>
+          <div class="bullet">Blocos de leitura rápida para manter atenção e conversão</div>
+          <div class="bullet">CTA recorrente ao longo da página para captação de leads</div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <p class="top">Copy sugerida</p>
+        <h3>Você não precisa começar perfeito. Precisa começar com direção.</h3>
+        <p>
+          Com uma preparação mais estratégica, motivadora e conectada ao seu objetivo, fica mais fácil manter constância, enxergar progresso e construir confiança para seguir na aviação.
+        </p>
+        <div class="cta-inline">
+          <small>CTA sugerido</small>
+          <strong style="font-size:1.55rem; font-family:'Sora', sans-serif;">Garanta seu acesso ao lançamento</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div style="max-width: 780px;">
+        <span class="eyebrow">Diferenciais</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">Por que esta proposta se destaca</h2>
+      </div>
+
+      <div class="tags-grid">
+        <div class="soft-tag">Visual moderno e envolvente, feito para o público jovem</div>
+        <div class="soft-tag">Comunicação clara, direta e sem enrolação</div>
+        <div class="soft-tag">Estrutura pensada para rotina corrida e estudo orientado</div>
+        <div class="soft-tag">Preparação com linguagem profissional e aspiracional</div>
+        <div class="soft-tag">Produto digital com foco em evolução, não em excesso de informação</div>
+        <div class="soft-tag">Ideal para lançamento, captação e construção de comunidade</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="launch">
+        <div class="launch-grid">
+          <div>
+            <span class="eyebrow" style="color:#67e8f9;">Oferta de lançamento</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3rem);">Entre agora e acompanhe o lançamento de uma preparação feita para quem quer crescer na aviação.</h2>
+            <p style="margin-top:18px; font-size:1.08rem;">
+              Cadastre-se para receber prioridade no lançamento, atualizações e acesso antecipado às novidades do produto. Uma oportunidade para começar com vantagem e fazer parte da primeira turma interessada.
+            </p>
+            <div class="actions">
+              <button class="btn btn-primary open-form">Quero prioridade no lançamento</button>
+              <button class="btn btn-secondary open-form">Receber novidades</button>
+            </div>
+          </div>
+
+          <div class="launch-panel">
+            <p style="color:#67e8f9; font-size:0.92rem; margin-bottom:8px;">O que a pessoa sente aqui</p>
+            <ul class="launch-items">
+              <li>Este produto foi feito para alguém como eu</li>
+              <li>Agora consigo enxergar melhor meu próximo passo</li>
+              <li>A marca parece profissional e confiável</li>
+              <li>Quero entrar antes e acompanhar o lançamento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#ffffff;">
+    <div class="container faq">
+      <div class="center-copy">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>Dúvidas comuns antes do lançamento</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question" type="button">
+            Para quem este produto foi criado?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Para jovens e aspirantes que desejam ingressar na aviação, especialmente futuros pilotos, comissários de bordo e mecânicos de aeronaves que buscam uma preparação mais clara, moderna e motivadora.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            O produto serve para quem ainda está começando?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Sim. A proposta é justamente ajudar quem ainda está organizando os primeiros passos, criando base e entendendo melhor o caminho para entrar no setor.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Qual é o principal diferencial?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            A combinação entre direção prática, linguagem jovem, posicionamento profissional e uma experiência pensada para transformar estudo em progresso percebido.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            É só para quem quer passar em prova?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Não. A página foi construída para vender uma preparação mais completa: desempenho, clareza, disciplina e visão de carreira na aviação.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container">
+      <div class="final-panel">
+        <span class="eyebrow" style="color:#67e8f9;">Último CTA</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">Seu futuro na aviação merece uma preparação com mais visão, método e identidade.</h2>
+        <p>
+          Entre na lista, acompanhe o lançamento e dê o primeiro passo com mais clareza. Quem quer construir uma carreira de alto nível precisa começar com a direção certa.
+        </p>
+        <div class="actions" style="justify-content:center; margin-top:30px;">
+          <button class="btn btn-primary open-form">Entrar na lista agora</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="form-modal" id="leadModal">
+    <div class="modal-card">
+      <button class="close-modal" id="closeModal" aria-label="Fechar">×</button>
+      <h3>Entre na lista de lançamento</h3>
+      <p>Preencha seus dados para receber prioridade no lançamento e as próximas novidades.</p>
+
+      <form id="leadForm">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="voce@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="interesse">Área de interesse</label>
+          <select id="interesse" name="interesse" required>
+            <option value="">Selecione</option>
+            <option value="piloto">Piloto</option>
+            <option value="comissario">Comissário de bordo</option>
+            <option value="mecanico">Mecânico de aeronaves</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem opcional</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conte brevemente seu objetivo na aviação"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="width:100%;">Quero receber o lançamento</button>
+        <div class="success-message" id="successMessage">Cadastro recebido. Agora é só conectar esse formulário ao seu backend ou ferramenta de e-mail marketing.</div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      Landing page conceito para lançamento de produto educacional na área aeronáutica.
+    </div>
+  </footer>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-question');
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach((faq) => faq.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    const modal = document.getElementById('leadModal');
+    const openButtons = document.querySelectorAll('.open-form');
+    const closeButton = document.getElementById('closeModal');
+    const leadForm = document.getElementById('leadForm');
+    const successMessage = document.getElementById('successMessage');
+
+    function openModal() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', openModal);
+    });
+
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    leadForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      successMessage.style.display = 'block';
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>
